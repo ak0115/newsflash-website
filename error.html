@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - NewsFlash</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <style>
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .error-icon {
+            font-size: 5rem;
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+        
+        .error-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .error-message {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #666;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .error-btn {
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .error-btn.secondary {
+            background-color: #7f8c8d;
+        }
+        
+        .error-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        .error-btn.secondary:hover {
+            background-color: #6c7a7a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>NewsFlash</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="error-container">
+                <div class="error-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h1 class="error-title">Oops! Something went wrong</h1>
+                <p class="error-message" id="error-message">We're having trouble loading the news. This could be due to an API key issue or network problem.</p>
+                <div class="error-actions">
+                    <button class="error-btn" onclick="window.location.href='index.html'">Try Again</button>
+                    <button class="error-btn secondary" onclick="showApiInstructions()">API Key Instructions</button>
+                </div>
+                <div id="api-instructions" style="display: none; margin-top: 30px; text-align: left; padding: 20px; background-color: #f8f8f8; border-radius: 8px;">
+                    <h3>How to Set Up Your API Key:</h3>
+                    <ol>
+                        <li>Sign up for a free API key at <a href="https://gnews.io/" target="_blank">GNews.io</a> or <a href="https://newsapi.org/" target="_blank">NewsAPI.org</a></li>
+                        <li>Open the <code>script.js</code> file in a text editor</li>
+                        <li>Find the line: <code>const API_KEY = 'YOUR_API_KEY';</code></li>
+                        <li>Replace <code>'YOUR_API_KEY'</code> with your actual API key</li>
+                        <li>Save the file and refresh the page</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2023 NewsFlash. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Get error message from URL if available
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const errorMsg = urlParams.get('message');
+            if (errorMsg) {
+                document.getElementById('error-message').textContent = decodeURIComponent(errorMsg);
+            }
+        }
+        
+        // Show/hide API instructions
+        function showApiInstructions() {
+            const instructions = document.getElementById('api-instructions');
+            if (instructions.style.display === 'none') {
+                instructions.style.display = 'block';
+            } else {
+                instructions.style.display = 'none';
+            }
+        }
+        
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

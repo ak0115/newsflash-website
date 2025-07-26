@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="32" height="32">
+  <!-- Background Circle -->
+  <circle cx="50" cy="50" r="48" fill="#e74c3c" />
+  
+  <!-- Newspaper Icon -->
+  <path d="M70,25H30c-2.8,0-5,2.2-5,5v40c0,2.8,2.2,5,5,5h40c2.8,0,5-2.2,5-5V30C75,27.2,72.8,25,70,25z M65,65H35V35h30V65z" fill="white" />
+  
+  <!-- Text Lines -->
+  <rect x="40" y="40" width="20" height="3" fill="white" />
+  <rect x="40" y="45" width="20" height="3" fill="white" />
+  <rect x="40" y="50" width="20" height="3" fill="white" />
+  <rect x="40" y="55" width="15" height="3" fill="white" />
+  
+  <!-- Lightning Bolt for "Flash" -->
+  <path d="M60,30l-8,12h6l-3,8l8-12h-6L60,30z" fill="white" />
+</svg>
