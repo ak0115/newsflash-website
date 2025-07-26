@@ -69,5 +69,3 @@ Or simply open the `index.html` file in your browser.
 - Share articles on social media
 - Weather widget integration
 
-## License
-This project is open source and available under the [MIT License](LICENSE).
